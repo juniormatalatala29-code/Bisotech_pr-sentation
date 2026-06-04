@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BisoTech Web Business Starter</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#050505;color:#fff;overflow-x:hidden}
+canvas{position:fixed;inset:0;z-index:0}
+section{position:relative;z-index:2;min-height:100vh;padding:70px 18px;display:flex;align-items:center;justify-content:center}
+.wrap{width:100%;max-width:1050px}
+.badge{display:inline-block;color:#f7c85b;letter-spacing:3px;font-weight:900;font-size:.82rem;margin-bottom:18px}
+h1{font-size:clamp(2.3rem,7vw,5rem);line-height:1.05;margin-bottom:22px}
+h2{font-size:clamp(2rem,5vw,3.5rem);line-height:1.1;margin-bottom:20px}
+p{color:#cfcfcf;font-size:1.05rem;line-height:1.8}
+.gold{background:linear-gradient(90deg,#fff,#ffd56b,#ffae00,#fff);background-size:300%;-webkit-background-clip:text;color:transparent;animation:shine 4s linear infinite}
+@keyframes shine{to{background-position:300%}}
+.card{background:rgba(255,255,255,.07);border:1px solid rgba(255,200,80,.24);border-radius:24px;padding:24px;box-shadow:0 0 40px rgba(255,180,40,.12);backdrop-filter:blur(16px)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+.icon{font-size:2rem;margin-bottom:12px}
+.btn{display:inline-block;margin-top:30px;padding:16px 28px;border-radius:45px;background:linear-gradient(135deg,#ffb000,#ffd76b);color:#111;text-decoration:none;font-weight:1000;box-shadow:0 0 35px rgba(255,190,60,.55)}
+.btn.dark{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);box-shadow:none;margin-left:10px}
+.hero{text-align:center}
+.phone{margin:35px auto 0;max-width:340px;border-radius:32px;padding:18px;background:#080808;border:1px solid rgba(255,200,80,.35);box-shadow:0 0 60px rgba(255,190,80,.2);animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.screen{border-radius:24px;background:linear-gradient(160deg,#111,#050505);padding:24px;text-align:left}
+.line{height:12px;background:#222;border-radius:20px;margin:12px 0;overflow:hidden}
+.line span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffb000,#ffd76b);animation:load 3s infinite}
+@keyframes load{50%{width:100%}100%{width:40%}}
+.step{display:flex;gap:16px;align-items:flex-start;margin:16px 0}
+.number{min-width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#ffbd32;color:#111;font-weight:1000}
+.timeline{display:grid;gap:18px;margin-top:25px}
+.price{font-size:4rem;font-weight:1000;color:#ffd36b}
+.reveal{opacity:0;transform:translateY(40px);transition:1s}
+.reveal.show{opacity:1;transform:translateY(0)}
+.final{text-align:center}
+.whatsapp{font-size:1.15rem}
+@media(max-width:750px){
+  section{padding:55px 16px}
+  .grid{grid-template-columns:1fr}
+  .btn.dark{margin-left:0;display:block;width:max-content;margin-top:12px}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+<section class="hero">
+  <div class="wrap reveal">
+    <div class="badge">🚀 BISOTECH ACADEMY</div>
+    <h1>Crée ton premier <span class="gold">site web professionnel</span> en 3 jours</h1>
+    <p>Une masterclass 100% en ligne, pratique et accessible aux débutants pour apprendre à créer un vrai site web et comprendre comment le transformer en opportunité de revenus.</p>
+    <a href="#programme" class="btn">Découvrir la formation</a>
+
+    <div class="phone">
+      <div class="screen">
+        <div class="badge">WEB BUSINESS STARTER</div>
+        <h3>Site vitrine</h3>
+        <div class="line"><span></span></div>
+        <div class="line"><span></span></div>
+        <div class="line"><span></span></div>
+        <p style="margin-top:18px;color:#ffd36b">✅ Responsive<br>✅ WhatsApp<br>✅ Projet réel</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap reveal">
+    <div class="badge">🌍 POURQUOI MAINTENANT ?</div>
+    <h2>Le monde devient numérique</h2>
+    <p>Chaque commerce, restaurant, salon, freelance ou entrepreneur a besoin d’une présence professionnelle en ligne. Celui qui sait créer des sites web possède une compétence utile, demandée et monétisable.</p>
+
+    <div class="grid">
+      <div class="card"><div class="icon">🏪</div><h3>Commerces</h3><p>Besoin d’une vitrine claire pour présenter produits et services.</p></div>
+      <div class="card"><div class="icon">🍽️</div><h3>Restaurants</h3><p>Menus, réservations, WhatsApp et visibilité locale.</p></div>
+      <div class="card"><div class="icon">💇</div><h3>Salons & soins</h3><p>Présentation des prestations, tarifs et prise de contact.</p></div>
+      <div class="card"><div class="icon">💼</div><h3>Freelances</h3><p>Portfolio, crédibilité et acquisition de clients.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="programme">
+  <div class="wrap reveal">
+    <div class="badge">🎯 OBJECTIF DES 3 JOURS</div>
+    <h2>Tu ne viens pas seulement apprendre. Tu viens construire.</h2>
+    <div class="grid">
+      <div class="card"><div class="icon">🌐</div><h3>Ton site vitrine complet</h3><p>Une présence web structurée, esthétique et professionnelle.</p></div>
+      <div class="card"><div class="icon">📱</div><h3>Version mobile fluide</h3><p>Un affichage adapté aux smartphones.</p></div>
+      <div class="card"><div class="icon">💬</div><h3>Bouton WhatsApp</h3><p>Un canal direct pour transformer les visiteurs en prospects.</p></div>
+      <div class="card"><div class="icon">💰</div><h3>Notions de vente</h3><p>Apprendre à valoriser et vendre ses prestations.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap reveal">
+    <div class="badge">📅 PROGRAMME PAS À PAS</div>
+    <h2>3 jours intensifs, simples et pratiques</h2>
+
+    <div class="timeline">
+      <div class="card step">
+        <div class="number">1</div>
+        <div><h3>Jour 1 — Comprendre & construire</h3><p>Mécanique du web, client/serveur, nom de domaine, HTML5, CSS3 et première page visible dans le navigateur.</p></div>
+      </div>
+
+      <div class="card step">
+        <div class="number">2</div>
+        <div><h3>Jour 2 — Création complète du site</h3><p>Sections standards, design moderne, mobile-first, boutons d’appel à l’action et interface professionnelle.</p></div>
+      </div>
+
+      <div class="card step">
+        <div class="number">3</div>
+        <div><h3>Jour 3 — Gagner de l’argent avec son site</h3><p>Prospection locale, argumentaire de vente, positionnement tarifaire et feuille de route pour obtenir ses premiers contrats.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap reveal">
+    <div class="badge">🧩 PROJET AU CHOIX</div>
+    <h2>Choisis un projet concret à construire</h2>
+    <p>Tu travailles sur un cas pratique réutilisable après la masterclass.</p>
+
+    <div class="grid">
+      <div class="card"><div class="icon">📸</div><h3>Photographe</h3><p>Galeries, présentation et contact.</p></div>
+      <div class="card"><div class="icon">🍽️</div><h3>Restaurant</h3><p>Menu, WhatsApp et appels à l’action.</p></div>
+      <div class="card"><div class="icon">✂️</div><h3>Salon & soins</h3><p>Prestations, réservation et image premium.</p></div>
+      <div class="card"><div class="icon">🏢</div><h3>Site business</h3><p>Vitrine professionnelle pour entreprise.</p></div>
+      <div class="card"><div class="icon">👨‍💻</div><h3>Portfolio pro</h3><p>Présenter ton profil et tes compétences.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap reveal">
+    <div class="badge">✅ CE AVEC QUOI TU REPARS</div>
+    <h2>Un résultat concret, pas seulement de la théorie</h2>
+
+    <div class="grid">
+      <div class="card"><div class="icon">✅</div><h3>Site vitrine validé</h3><p>Un site complet codé de tes propres mains.</p></div>
+      <div class="card"><div class="icon">📱</div><h3>Version mobile responsive</h3><p>Une optimisation propre pour téléphone.</p></div>
+      <div class="card"><div class="icon">📁</div><h3>Fichiers sources</h3><p>Code HTML/CSS propre, réutilisable pour tes futurs projets.</p></div>
+      <div class="card"><div class="icon">⚠️</div><h3>Pratique directe</h3><p>Pas de blabla inutile : tu apprends en construisant.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap reveal">
+    <div class="badge">👥 POUR QUI ?</div>
+    <h2>Cette masterclass est faite pour toi si tu veux une vraie compétence</h2>
+
+    <div class="grid">
+      <div class="card"><div class="icon">🎓</div><h3>Étudiants</h3><p>Acquérir une compétence monétisable en parallèle des études.</p></div>
+      <div class="card"><div class="icon">💡</div><h3>Entrepreneurs</h3><p>Créer ou modifier le site de ton activité sans dépendre de quelqu’un.</p></div>
+      <div class="card"><div class="icon">💻</div><h3>Freelances</h3><p>Ajouter une offre de création de site à tes prestations.</p></div>
+      <div class="card"><div class="icon">🎯</div><h3>Personnes ambitieuses</h3><p>Démarrer une compétence utile pour générer des opportunités.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap reveal">
+    <div class="badge">💳 TARIF TRANSPARENT</div>
+    <h2>Investis dans une compétence d’avenir</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Frais d’inscription</h3>
+        <p>Administratifs</p>
+        <div class="price">5$</div>
+      </div>
+      <div class="card">
+        <h3>Participation masterclass</h3>
+        <p>Accès aux sessions en direct</p>
+        <div class="price">15$</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;text-align:center">
+      <h3>Investissement global</h3>
+      <div class="price">20$</div>
+      <p>Paiement simple, flexible et accessible.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap reveal">
+    <div class="badge">⏳ INSCRIPTIONS OUVERTES</div>
+    <h2>Les places sont limitées.</h2>
+    <p>Ne remets pas ton avenir à plus tard. Apprends à bâtir ton propre site web vitrine et découvre comment transformer cette compétence en opportunité.</p>
+
+    <a class="btn whatsapp" href="https://wa.me/243980419904?text=Bonjour%20BisoTech%2C%20je%20veux%20m'inscrire%20%C3%A0%20la%20Masterclass%20Web%20Business%20Starter." target="_blank">
+      💬 Inscris-toi maintenant
+    </a>
+
+    <p style="margin-top:25px;color:#ffd36b;font-weight:900;letter-spacing:2px">
+      BISOTECH : CODEZ VOTRE AVENIR.
+    </p>
+  </div>
+</section>
+
+<script>
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+let w,h,particles=[];
+
+function resize(){
+  w=canvas.width=innerWidth;
+  h=canvas.height=innerHeight;
+}
+resize();
+addEventListener("resize",resize);
+
+for(let i=0;i<140;i++){
+  particles.push({
+    x:Math.random()*w,
+    y:Math.random()*h,
+    r:Math.random()*2+.4,
+    vx:(Math.random()-.5)*.35,
+    vy:(Math.random()-.5)*.35
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  particles.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=w;if(p.x>w)p.x=0;
+    if(p.y<0)p.y=h;if(p.y>h)p.y=0;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="rgba(255,200,90,.75)";
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+const reveals=document.querySelectorAll(".reveal");
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add("show");
+  });
+},{threshold:.18});
+reveals.forEach(r=>obs.observe(r));
+</script>
+
+</body>
+</html>
